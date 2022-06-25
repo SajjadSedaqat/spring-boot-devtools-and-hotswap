@@ -12,7 +12,7 @@
         <th>Name</th>
         <th>Age</th>
     </tr>
-    <tr th:each="user : ${list}" >
+    <tr th:each="user : ${list}">
         <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.age}"></td>
@@ -20,8 +20,14 @@
 </table>
 
 <h3>Thymeleaf Scope</h3>
-Request: <span th:text="${#httpServletRequest.getAttribute('request')}"></span><br />
-Session: <span th:text="${session.session}"></span><br />
-Application: <span th:text="${application.application}"></span><br />
+Request: <span th:text="${#httpServletRequest.getAttribute('request')}"></span><br/>
+Session: <span th:text="${session.session}"></span><br/>
+Application: <span th:text="${application.application}"></span><br/>
+
+<h3>Thymeleaf URLs</h3>
+<!-- redirect to demo page without parameter -->
+<a th:href="@{~/demo}">Visit Demo Page</a> <br />
+<!-- redirect to demo page with parameter -->
+<a th:href="@{~/demo(id=1, name=eric)}">Visit Demo page With Parameter</a>
 </body>
 </html>
